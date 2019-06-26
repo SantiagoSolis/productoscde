@@ -7,8 +7,31 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-label color="primary">Ver productos</ion-label>
+  <ion-list-header>
+    <ion-label>Id</ion-label>
+    <ion-label>Nombre</ion-label>
+    <ion-label>Descripcion</ion-label>
+    <ion-label>Cantidad</ion-label>
+    <ion-label>Precio</ion-label>
+  </ion-list-header>
+  <ion-list *ngFor="let item of listProduct">
+    <ion-item>
+      <ion-label type='String' #idItem (click)='mostrarDetalleProducto(idItem.value)'>{{item.id}}</ion-label>
+      <ion-label>{{item.nombre}}</ion-label>
+      <ion-label>{{item.descripcion}}</ion-label>
+      <ion-label>{{item.cantidad}}</ion-label>
+      <ion-label>{{item.precio}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+<ion-list>
+  <ion-list-header>
+    <ion-label>Items</ion-label>
+  </ion-list-header>
+  <ion-item>Item 1</ion-item>
+  <ion-item>Item 2</ion-item>
+  <ion-item>Item 3</ion-item>
+  <ion-item>Item 4</ion-item>
+  <ion-item>Item 5</ion-item>
+</ion-list>
