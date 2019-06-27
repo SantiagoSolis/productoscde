@@ -12,7 +12,7 @@ grails:
 
 info:
     app:
-        name: '@info.app.name@'
+        name: '@info.app.nombre@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
 spring:
