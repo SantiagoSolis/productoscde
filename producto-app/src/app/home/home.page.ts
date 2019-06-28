@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiproductoService } from '../../services/apiproducto.service';
 import { Observable } from "rxjs";
-import { map,catchError } from "rxjs/operators";
+
 
 
 @Component({
@@ -14,6 +14,8 @@ export class HomePage {
 
   listProduct :any;
   product:any;
+  searchFilter: String = "";
+  text: string = "";
 
   constructor(private apiProducto:ApiproductoService,private router:Router) {
      this.listProduct = this.getProducts();
@@ -33,11 +35,25 @@ export class HomePage {
       this.router.navigate(['/view-product',id]);
     });
   }
-  // getFilterList(String param)
-  // {
-  //   this.apiProducto.getFilteredProducts(param).
-  //     subscribe(products => {
-  //       this.listProduct=products;
-  //     });
-  // }ctrl + shif + / comentairos
+
+    getFilteredProducts(event)
+    {
+      const text = event.target.value
+      if(isNaN(text)){
+        this.apiProducto.getFilteredProducts(text).
+          subscribe(products => {
+            this.listProduct=products;
+            console.log(text);
+            console.log(products);
+          });
+      } else{
+        this.apiProducto.getById(text).subscribe(product => {
+            console.log(product);
+            this.product=product;
+          this.router.navigate(['/view-product',text]);
+        });
+    }
+    }
+
+
 }
