@@ -27,30 +27,26 @@ export class HomePage {
         this.listProduct=products;
       });
   }
-  mostrarDetalleProducto(id)
-  {
+
+  mostrarDetalleProducto(id){
     this.apiProducto.getById(id).subscribe(product => {
-        console.log(product);
         this.product=product;
       this.router.navigate(['/view-product',id]);
     });
   }
 
-    getFilteredProducts(event)
-    {
+    getFilteredProducts(event){
       const text = event.target.value
-      if(isNaN(text)){
+      if(isNaN(text)) {
         this.apiProducto.getFilteredProducts(text).
           subscribe(products => {
             this.listProduct=products;
           });
-      } else{
+      } else {
         this.apiProducto.getById(text).subscribe(product => {
-            this.product=product;
-          this.router.navigate(['/view-product',text]);
+        this.product=product;
+        this.router.navigate(['/view-product',text]);
         });
+      }
     }
-    }
-
-
 }

@@ -1,12 +1,10 @@
 <ion-header>
   <ion-toolbar style="backgroud-color:blue">
-
     <ion-title style="text-color:white">
       Caso de prueba productos
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-searchbar  (ionChange)="getFilteredProducts($event)" style="margin-right:3%"></ion-searchbar>
   <div class="container">
@@ -18,9 +16,7 @@
             <ion-card-title>{{item.nombre}}</ion-card-title>
           </ion-card-header>
           <ion-card-content>{{item.Descripcion}}</ion-card-content>
-
             <input type="hidden" name="" value="{{item.id}}" #idProducto><ion-button color="primary" (click)="mostrarDetalleProducto(idProducto.value)" >Ver Producto</ion-button>
-
         </ion-card>
       </ion-item>
     </ion-list>
