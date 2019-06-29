@@ -43,12 +43,9 @@ export class HomePage {
         this.apiProducto.getFilteredProducts(text).
           subscribe(products => {
             this.listProduct=products;
-            console.log(text);
-            console.log(products);
           });
       } else{
         this.apiProducto.getById(text).subscribe(product => {
-            console.log(product);
             this.product=product;
           this.router.navigate(['/view-product',text]);
         });
