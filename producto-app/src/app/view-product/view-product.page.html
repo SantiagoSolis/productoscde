@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align:center">Caso de prueba productos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h2 style="text-align:center">Detalle de {{product.nombre}}</h2>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{product.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{product.descripcion}}
+    </ion-card-content>
+      <ion-item>
+        <ion-label>Cantidad en stock: {{product.cantidad}}</ion-label>
+        <ion-label>Precio: {{product.precio}}</ion-label>
+        <label>Codigo de producto: {{product.id}}</label>
+      </ion-item>
+  </ion-card>
+</ion-content>

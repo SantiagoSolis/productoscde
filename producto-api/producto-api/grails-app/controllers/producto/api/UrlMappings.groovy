@@ -11,7 +11,7 @@ class UrlMappings {
             }
         }
         "/show/$id"(controller: 'product', action: 'show')
-        "/"(view:"/index")
+        "/"(controller: "product",action:"index", view:"/product/index")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
